@@ -1,4 +1,5 @@
 import Button from "./components/button/button";
+import CardBack from "./components/card-back/card-back";
 import CardFront from "./components/card-front/card-front.jsx";
 import Expinput from "./components/input/expinput";
 import Form from "./components/form/form";
@@ -11,18 +12,49 @@ function App({ className }) {
     useState({ cardholder: "", cardNumber: "", month: "", year: "", cvc: "" });
   const handleCardChange = (e) => {
     const { name, value } = e.target;
-    setCardDetails((prevState) => ({ ...prevState, [name]: value }));
+    switch (name) {
+      case "cardNumber":
+        setCardDetails((prev) => ({
+          ...prev,
+          [name]: value.slice(0, 16),
+        }));
+        break;
+      case "month":
+        setCardDetails((prev) => ({
+          ...prev,
+          [name]: value.replace(/\D/g, "").slice(0, 2),
+        }));
+        break;
+      case "year":
+        setCardDetails((prev) => ({
+          ...prev,
+          [name]: value.replace(/\D/g, "").slice(0, 2),
+        }));
+        break;
+      case "cvc":
+        setCardDetails((prev) => ({
+          ...prev,
+          [name]: value.replace(/\D/g, "").slice(0, 3),
+        }));
+        break;
+      default:
+        setCardDetails((prev) => ({ ...prev, [name]: value }));
+        break;
+    }
   };
 
   return (
     <div className={`App ${className}`}>
       <div className='card-preview'>
-        <CardFront
-          cardNumber={cardNumber}
-          cardholder={cardholder}
-          month={month}
-          year={year}
-        />
+        <div className='card-group'>
+          <CardFront
+            cardNumber={cardNumber}
+            cardholder={cardholder}
+            month={month}
+            year={year}
+          />
+          <CardBack cvc={cvc} />
+        </div>
       </div>
       <div className='card-details'>
         <Form>
@@ -39,7 +71,7 @@ function App({ className }) {
             type='number'
             onChange={handleCardChange}
             name='cardNumber'
-            value={cardNumber}
+            value={cardNumber.split(0, 16)}
             full
             label='Card number'
             placeholder='E.g. 0000 0000 0000 0000'
@@ -66,23 +98,28 @@ function App({ className }) {
 }
 
 export default styled(App)`
-  display: grid;
+  display: flex;
+  flex-direction: row;
   height: 100vh;
-  grid-gap: 2rem;
   align-items: center;
   justify-items: center;
 
   && > .card-preview {
-    position: relative;
     display: flex;
-    justify-content: end;
-    width: 100%;
-    height: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: 100vh;
     background: linear-gradient(45deg, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+
+    .card-group {
+      position: relative;
+    }
   }
 
   && > .card-details {
-    padding: 20%;
+    width: 60vw;
+    padding: 0 14%;
   }
 
   @media (min-width: 768px) {

@@ -4,10 +4,7 @@ import styled from "styled-components";
 
 const CardFront = ({ className, cardholder, cardNumber, month, year }) => {
   const format = (number) => {
-    return number
-      .toString()
-      .substr(0, 16)
-      .replace(/\d{4,4}?(?=...)/g, "$& ");
+    return number.replace(/\d{4,4}?(?=...)/g, "$& ");
   };
 
   return (
@@ -30,10 +27,7 @@ const CardFront = ({ className, cardholder, cardNumber, month, year }) => {
 
 export default styled(CardFront)`
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
   z-index: 1000;
-  right: -10%;
   color: white;
   background-position: center top;
   background-size: 100% auto;
@@ -55,7 +49,7 @@ export default styled(CardFront)`
   }
 
   .card-number {
-    font-size: 2.46rem;
+    font-size: 2.4rem;
     text-align: justify;
   }
 
