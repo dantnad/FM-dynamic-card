@@ -1,5 +1,5 @@
 :root {
-  --gradient-active: hsl(249, 99%, 64%) to hsl(278, 94%, 30%)
+  --gradient-active: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
   --color-error: hsl(0, 100%, 66%);
   --color-white: hsl(0, 0%, 100%);
   --color-light-violet: hsl(270, 3%, 87%);
@@ -14,4 +14,15 @@ body {
   font-size: 18px;
   font-weight: 500;
   font-family: 'Space Grotesk', sans-serif;;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

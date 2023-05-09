@@ -1,13 +1,21 @@
 import styled from "styled-components";
 
-const Input = ({ className, label, type, onChange, error, placeholder }) => {
+const Input = ({
+  className,
+  label,
+  type,
+  onChange,
+  error,
+  placeholder,
+  ...props
+}) => {
   return (
     <div className={className}>
-      <label for={label}>{label}</label>
+      <label htmlFor={label}>{label}</label>
       <input
+        {...props}
         placeholder={placeholder}
         type={type}
-        name={label}
         onChange={onChange}
       />
       {error && <span>{error}</span>}

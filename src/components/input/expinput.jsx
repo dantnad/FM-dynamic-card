@@ -1,23 +1,25 @@
 import styled from "styled-components";
 
-const Input = ({ className, label, type, onChange, error }) => {
+const Input = ({ className, label, onChange, error, month, year }) => {
   return (
     <div className={className}>
       <label for={label}>{label}</label>
       <div className='input-group'>
         <input
           placeholder='MM'
-          type={type}
+          type='number'
           min={1}
           max={12}
+          value={month}
           name='month'
           onChange={onChange}
         />
         <input
           placeholder='YY'
-          type={type}
+          type='number'
           min={0}
           max={99}
+          value={year}
           name='year'
           onChange={onChange}
         />
