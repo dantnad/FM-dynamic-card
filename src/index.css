@@ -1,3 +1,8 @@
+*{
+  box-sizing: border-box;
+  
+}
+
 :root {
   --gradient-active: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
   --color-error: hsl(0, 100%, 66%);
@@ -10,7 +15,6 @@
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-size: 18px;
   font-weight: 500;
   font-family: 'Space Grotesk', sans-serif;;

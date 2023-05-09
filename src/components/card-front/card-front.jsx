@@ -16,10 +16,12 @@ const CardFront = ({ className, cardholder, cardNumber, month, year }) => {
       <img src={logo} alt='' className='card-logo' />
       <div className='card-details'>
         <div className='card-number'>{format(cardNumber)}</div>
-        <div className='card-holder'>{cardholder}</div>
-        <div className='card-expiry'>
-          <div className='card-month'>{month}</div>/
-          <div className='card-year'>{year}</div>
+        <div className='card-bottom'>
+          <div className='card-holder'>{cardholder}</div>
+          <div className='card-expiry'>
+            <div className='card-month'>{month}</div>/
+            <div className='card-year'>{year}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -28,6 +30,10 @@ const CardFront = ({ className, cardholder, cardNumber, month, year }) => {
 
 export default styled(CardFront)`
   position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  right: -10%;
   color: white;
   background-position: center top;
   background-size: 100% auto;
@@ -40,29 +46,33 @@ export default styled(CardFront)`
     left: 10%;
   }
 
-  && > .card-details {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    justify-content: end;
+  .card-details {
+    width: 100%;
+    padding: 10%;
     align-items: center;
     position: absolute;
-    padding: 10%;
     bottom: 0%;
+  }
 
-    .card-number {
-      font-size: 2.2rem;
-      grid-column: span 4;
-    }
+  .card-number {
+    font-size: 2.46rem;
+    text-align: justify;
+  }
 
-    .card-bottom {
-      display: flex;
-      gap: 60%;
-      justify-content: space-between;
-    }
+  .card-holder {
+    width: 70%;
+  }
 
-    .card-expiry {
-      display: flex;
-      justify-content: space-between;
-    }
+  .card-expiry {
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .card-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 `;
