@@ -12,7 +12,7 @@ const CardFront = ({ className, cardholder, cardNumber, month, year }) => {
       <img src={front} alt='' className='card-front' />
       <img src={logo} alt='' className='card-logo' />
       <div className='card-details'>
-        <div className='card-number'>{format(cardNumber)}</div>
+        <p className='card-number'>{format(cardNumber)}</p>
         <div className='card-bottom'>
           <div className='card-holder'>{cardholder}</div>
           <div className='card-expiry'>
@@ -27,6 +27,7 @@ const CardFront = ({ className, cardholder, cardNumber, month, year }) => {
 
 export default styled(CardFront)`
   position: relative;
+  right: -30%;
   z-index: 1000;
   color: white;
   background-position: center top;
@@ -36,8 +37,9 @@ export default styled(CardFront)`
 
   .card-logo {
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     top: 10%;
-    left: 10%;
   }
 
   .card-details {
@@ -49,8 +51,10 @@ export default styled(CardFront)`
   }
 
   .card-number {
-    font-size: 2.4rem;
-    text-align: justify;
+    width: 100%;
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
   }
 
   .card-holder {

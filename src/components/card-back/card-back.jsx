@@ -12,6 +12,7 @@ const CardBack = ({ className, cvc }) => {
 
 export default styled(CardBack)`
   position: relative;
+  right: -50%;
   .card-cvc {
     position: absolute;
     color: black;
