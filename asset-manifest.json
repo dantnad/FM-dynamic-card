@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/FM-dynamic-card/static/css/main.e187814b.css",
+    "main.js": "/FM-dynamic-card/static/js/main.3b403281.js",
+    "static/media/back.png": "/FM-dynamic-card/static/media/back.23f68fa3aa3d5b33dfc8.png",
+    "static/media/front.png": "/FM-dynamic-card/static/media/front.8153e2ca184402a8385f.png",
+    "index.html": "/FM-dynamic-card/index.html",
+    "static/media/card-logo.svg": "/FM-dynamic-card/static/media/card-logo.8ca9036515954c3f8191559dce9c7bdf.svg",
+    "main.e187814b.css.map": "/FM-dynamic-card/static/css/main.e187814b.css.map",
+    "main.3b403281.js.map": "/FM-dynamic-card/static/js/main.3b403281.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e187814b.css",
+    "static/js/main.3b403281.js"
+  ]
+}
